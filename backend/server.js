@@ -2,6 +2,7 @@ import express from "express";
 import { config } from "dotenv";
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
+import cronUpdate from "./cronJobs/cron.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 import path from "path";
 import morgan from "morgan";
@@ -9,6 +10,8 @@ import morgan from "morgan";
 config();
 
 connectDB();
+
+cronUpdate();
 
 const app = express();
 
