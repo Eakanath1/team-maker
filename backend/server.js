@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import cronUpdate from "./cronJobs/cron.js";
+import scanOrgs from "./cronJobs/scanOrg.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 import path from "path";
 import morgan from "morgan";
@@ -11,7 +12,7 @@ config();
 
 connectDB();
 
-cronUpdate();
+scanOrgs();
 
 const app = express();
 

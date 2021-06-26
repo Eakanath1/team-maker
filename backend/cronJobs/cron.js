@@ -7,6 +7,9 @@ const cronUpdate = async () => {
         console.log(`At time ${t}`);
         t += 10;
     });
+    if(shell.exec("dir").code !== 0){
+        console.log(`Something isn't right`);
+    }
 }
 
 export default cronUpdate;
